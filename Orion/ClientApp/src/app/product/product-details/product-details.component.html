@@ -1,0 +1,113 @@
+<ng-container *ngIf="(product$ | async) as product">
+  <div class="card mb-3">
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h5 class="mb-2">{{ product.name }} ({{ product.code }})</h5>
+          <a class="btn btn-falcon-default btn-sm" href="#">
+            <span class="fas fa-plus fs--2 me-1"></span>Add note
+          </a>
+          <button class="btn btn-falcon-default btn-sm dropdown-toggle ms-2 dropdown-caret-none" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fas fa-ellipsis-h"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Edit</a>
+            <a class="dropdown-item" href="#">Report</a><a class="dropdown-item" href="#">Archive</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-danger" href="#">Delete user</a>
+          </div>
+        </div>
+        <div class="col-auto d-none d-sm-block">
+          <a class="btn btn-falcon-default btn-sm" routerLink="../">Back to products</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body border-top">
+      <div class="d-flex">
+        <i class="fa-solid fa-box me-2"></i>
+        <div class="flex-1">
+          <p class="mb-0">Product was created</p>
+          <p class="fs--1 mb-0 text-600">Jan 12, 11:13 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <div class="row align-items-center">
+        <div class="col">
+          <h5 class="mb-0">Details</h5>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-falcon-default btn-sm" (click)="productDetailsEditMode = true" *ngIf="!productDetailsEditMode">
+            <span class="fa-solid fa-pencil fs--2 me-1"></span>Update details
+          </button>
+          <button class="btn btn-falcon-default btn-sm" (click)="productDetailsEditMode = false" *ngIf="productDetailsEditMode">
+            <span class="fa-solid fa-pencil fs--2 me-1"></span>Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body bg-light border-top">
+      <ng-container *ngIf="!productDetailsEditMode">
+        <div class="row">
+          <div class="col-lg col-xxl-5">
+            <h6 class="fw-semi-bold ls mb-3 text-uppercase">Product Information</h6>
+            <div class="row">
+              <div class="col-5 col-sm-4">
+                <p class="fw-semi-bold mb-1">ID</p>
+              </div>
+              <div class="col">{{ product.productId }}</div>
+            </div>
+            <div class="row">
+              <div class="col-5 col-sm-4">
+                <p class="fw-semi-bold mb-1">Name</p>
+              </div>
+              <div class="col">{{ product.name }}</div>
+            </div>
+            <div class="row">
+              <div class="col-5 col-sm-4">
+                <p class="fw-semi-bold mb-1">Code</p>
+              </div>
+              <div class="col">{{ product.code }}</div>
+            </div>
+            <div class="row">
+              <div class="col-5 col-sm-4">
+                <p class="fw-semi-bold mb-1">Created</p>
+              </div>
+              <div class="col">{{ product.createdOn }}</div>
+            </div>
+            <div class="row">
+              <div class="col-5 col-sm-4">
+                <p class="fw-semi-bold mb-1">Category</p>
+              </div>
+              <div class="col">{{ product.productCategory.name }}</div>
+            </div>
+          </div>
+          <div class="col-lg col-xxl-5">
+            <div class="row mt-4">
+              <div class="col-5 col-sm-4">
+                <p class="fw-semi-bold mb-0">Description</p>
+              </div>
+              <div class="col">
+                <p class="fst-italic text-400 mb-1" *ngIf="product.description === null">No Description</p>
+                <div class="col" *ngIf="product.description !== null">{{ product.description }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <app-product-details-edit *ngIf="productDetailsEditMode" [product]="product" (updated)="productDetailsEditMode = false"></app-product-details-edit>
+    </div>
+  </div>
+
+
+  <app-product-details-prices [productId]="product.productId"></app-product-details-prices>
+
+
+
+
+
+
+</ng-container>

@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center mt-3" data-list="">
+  <button [ngClass]="{'disabled': pagination.page === 1}" class="btn btn-sm btn-falcon-default me-1" type="button" (click)="emitPageChanged(pagination.page - 1)">
+    <span class="fa-solid fa-chevron-left"></span>
+  </button>
+  <ul class="pagination mb-0">
+    <li [ngClass]="{'active': (page === pagination.page)}" *ngFor="let page of pages" (click)="emitPageChanged(page)">
+      <button class="page" type="button">{{ page}}</button>
+    </li>
+  </ul>
+  <button [ngClass]="{'disabled': pagination.page === pagination.totalPages}" class="btn btn-sm btn-falcon-default ms-1" type="button" (click)="emitPageChanged(pagination.page + 1)">
+     <span class="fa-solid fa-chevron-right"> </span>
+  </button>
+</div>

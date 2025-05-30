@@ -1,0 +1,17 @@
+<div class="modal-content position-relative">
+  <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" aria-label="Close" (click)="modalRef.hide()"></button>
+  </div>
+  <div class="modal-body p-0">
+    <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+      <h4 class="mb-1">Confirmation</h4>
+    </div>
+    <div class="p-4">
+      Are you sure you want to do this?
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" type="button" (click)="onDecision(false)">Cancel</button>
+    <button class="btn btn-danger" type="button" (click)="onDecision(true)">Confirm</button>
+  </div>
+</div>

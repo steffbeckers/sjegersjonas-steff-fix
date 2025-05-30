@@ -1,0 +1,69 @@
+<ng-template></ng-template>
+<div class="d-flex align-items-center">
+  <div class="toggle-icon-wrapper">
+    <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" (click)="onToggleVerticalNavbar()">
+      <span class="navbar-toggle-icon">
+        <span class="toggle-line"></span>
+      </span>
+    </button>
+  </div>
+  <a class="navbar-brand" routerLink="/">
+    <div class="d-flex align-items-center py-3">
+      <img class="me-2" src="../assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" />
+      <span class="font-sans-serif">Orion</span>
+    </div>
+  </a>
+</div>
+<div class="navbar-collapse collapse" [collapse]="isMobileNavbarCollapsed" [isAnimated]="true">
+  <div class="navbar-vertical-content scrollbar">
+    <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+      <li class="nav-item">
+        <ng-container *ngFor="let navigationItem of navigationItems" [ngSwitch]="navigationItem.type">
+
+          <div class="row navbar-vertical-label-wrapper mt-3 mb-2" *ngIf="navigationItem.section">
+            <div class="col-auto navbar-vertical-label">{{ navigationItem.section.text }}
+            </div>
+            <div class="col ps-0">
+              <hr class="mb-0 navbar-vertical-divider" />
+            </div>
+          </div>
+
+
+          <a class="nav-link" [routerLink]="navigationItem.link" routerLinkActive="active" role="button"
+             [routerLinkActiveOptions]="{ exact: true }"
+             *ngSwitchCase="navigationItemType.Single"
+             (click)="onCloseMobileNavigation()">
+            <div class="d-flex align-items-center">
+              <span class="nav-link-icon">
+                <i [ngClass]="navigationItem.icon"></i>
+              </span>
+              <span class="nav-link-text ps-1">{{ navigationItem.text }}</span>
+            </div>
+          </a>
+
+          <ng-container  *ngSwitchCase="navigationItemType.Multi">
+            <div class="nav-link dropdown-indicator" role="button" (click)="navigationItem.isCollapsed = !navigationItem.isCollapsed!" [attr.aria-expanded]="!navigationItem.isCollapsed">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <i [ngClass]="navigationItem.icon"></i>
+                </span>
+                <span class="nav-link-text ps-1">{{ navigationItem.text }}</span>
+              </div>
+            </div>
+            <ul class="nav" [collapse]="navigationItem.isCollapsed!" [isAnimated]="true">
+              <li class="nav-item"  *ngFor="let navigationItemLevel of navigationItem.level">
+                <a class="nav-link" [routerLink]="navigationItemLevel.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="onCloseMobileNavigation()">
+                  <div class="d-flex align-items-center">
+                    <span class="nav-link-text ps-1">{{ navigationItemLevel.text }}</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </ng-container>
+
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+</div>
+

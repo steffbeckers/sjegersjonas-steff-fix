@@ -1,0 +1,47 @@
+<div class="modal-content position-relative">
+  <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" aria-label="Close" (click)="modalRef.hide()"></button>
+  </div>
+  <div class="modal-body p-0">
+    <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+      <h4 class="mb-1">Add a new product</h4>
+    </div>
+    <div class="p-4 pb-0">
+      <form [formGroup]="addFrom" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="col-form-label" for="form_name">Name</label>
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <input formFieldError type="text" id="form_name" class="form-control" formControlName="name">
+          </app-form-field-error>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label" for="form_code">Code</label>
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <input formFieldError type="text" id="form_code" class="form-control" formControlName="code">
+          </app-form-field-error>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label" for="form_category">Category</label>
+          <app-select-search [data]="productCategorySearchFacade.selectProductCategories$ | async"
+                             (search)="productCategorySearchFacade.searchProductCategory($event)"
+                             [bindLabel]="'name'"
+                             [bindValue]="'productCategoryId'">
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError selectSearchRef type="number" id="form_category" class="form-control" formControlName="category">
+            </app-form-field-error>
+          </app-select-search>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label" for="form_description">Description</label>
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <textarea formFieldError id="form_description" class="form-control" rows="3" formControlName="description"></textarea>
+          </app-form-field-error>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" type="button" (click)="modalRef.hide()">Cancel</button>
+    <button [disabled]="(isFormSubmit && !addFrom.valid) || disableSubmit" class="btn btn-success" type="button" (click)="onSubmit()">Save</button>
+  </div>
+</div>

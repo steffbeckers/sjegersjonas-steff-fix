@@ -1,0 +1,25 @@
+<div class="filters-accordion">
+  <accordion [isAnimated]="true">
+    <accordion-group [isOpen]="show" heading="Another group">
+      <form [formGroup]="searchFrom">
+        <div class="row gx-2 ps-2 mb-4">
+          <div class="col-sm-2 px-3">
+            <select class="form-select"  formControlName="column">
+              <option value="1">Name</option>
+              <option value="2">VatNumber</option>
+              <option value="3">Street</option>
+              <option value="4">PostalCode</option>
+              <option value="5">City</option>
+              <option value="6">Country</option>
+              <option value="7">Language</option>
+              <option value="8">Email</option>
+            </select>
+          </div>
+          <div class="col-sm-3 px-3">
+            <input class="form-control" type="text"  formControlName="searchText" placeholder="Search...">
+          </div>
+        </div>
+      </form>
+    </accordion-group>
+  </accordion>
+</div>

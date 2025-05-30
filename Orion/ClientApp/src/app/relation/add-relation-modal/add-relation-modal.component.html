@@ -1,0 +1,102 @@
+<div class="modal-content position-relative">
+  <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" aria-label="Close" (click)="modalRef.hide()"></button>
+  </div>
+  <div class="modal-body p-0">
+    <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+      <h4 class="mb-1">Add a new relation</h4>
+    </div>
+    <div class="p-4">
+      <form [formGroup]="addFrom" (ngSubmit)="onSubmit()">
+        <div class="row g-2 h-100 align-items-end">
+          <div class="col-md-12">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" id="from_is_customer" type="radio" value="0" formControlName="isCompany" />
+              <label class="form-check-label" for="from_is_customer">Customer</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" id="form_is_company" type="radio" value="1" formControlName="isCompany" />
+              <label class="form-check-label" for="form_is_company">Company</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label class="col-form-label" for="form_name">Name</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_name" class="form-control" formControlName="name">
+            </app-form-field-error>
+          </div>
+          <div [ngClass]="(isCompanyControl.value === '0') ? 'col-sm-12' : 'col-sm-6'" class="col-sm-6">
+            <label class="col-form-label" for="form_code">Code</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_code" class="form-control" formControlName="code">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-6" *ngIf="isCompanyControl.value === '1'">
+            <label class="col-form-label" for="form_vatNumber">Vat</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_vatNumber" class="form-control" formControlName="vatNumber">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-12" *ngIf="isCompanyControl.value === '1'">
+            <label class="col-form-label" for="form_website">Website</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_website" class="form-control" formControlName="website">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-12">
+            <label class="col-form-label" for="form_street">Street</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_street" class="form-control" formControlName="street">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-4">
+            <label class="col-form-label" for="form_postalCode">Postal Code</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_postalCode" class="form-control" formControlName="postalCode">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-4">
+            <label class="col-form-label" for="form_city">City</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_city" class="form-control" formControlName="city">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-4">
+            <label class="col-form-label" for="form_country">Country</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_country" class="form-control" formControlName="country">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-12">
+            <label class="col-form-label" for="form_language">Language</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_language" class="form-control" formControlName="language">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-12">
+            <label class="col-form-label" for="form_email">Email</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_email" class="form-control" formControlName="email">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-6">
+            <label class="col-form-label" for="form_phone">Phone</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_phone" class="form-control" formControlName="phone">
+            </app-form-field-error>
+          </div>
+          <div class="col-md-6">
+            <label class="col-form-label" for="form_mobilePhone">Mobile Phone</label>
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError type="text" id="form_mobilePhone" class="form-control" formControlName="mobilePhone">
+            </app-form-field-error>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" type="button" (click)="modalRef.hide()">Cancel</button>
+    <button [disabled]="(isFormSubmit && !addFrom.valid) || disableSubmit" class="btn btn-success" type="button" (click)="onSubmit()">Save</button>
+  </div>
+</div>

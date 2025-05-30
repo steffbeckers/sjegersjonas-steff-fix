@@ -1,0 +1,11 @@
+<main class="main" [ngClass]="{'navbar-vertical-collapsed': (isNavbarVerticalCollapsed$ | async)}">
+  <div class="container" data-layout="container">
+    <nav class="navbar navbar-light navbar-vertical navbar-expand-xl navbar-inverted">
+      <app-main-sidebar></app-main-sidebar>
+    </nav>
+    <div class="content">
+      <app-main-navbar></app-main-navbar>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,49 @@
+<div data-list="">
+  <div class="table-responsive scrollbar">
+    <table class="table table-bordered table-sm table-striped fs--1 mb-0 overflow-hidden">
+      <thead class="bg-200 text-900">
+        <tr>
+          <th [ngClass]="{'asc': (sort?.columnName === header.columnDef && sort?.order === sortOrder.Asc),
+          'desc': (sort?.columnName === header.columnDef && sort?.order === sortOrder.Desc),
+          'sort': header.sortable}"
+              class="pe-1 align-middle white-space-nowrap" data-sort="" *ngFor="let header of columnHeaderInfo" (click)="onSortChange(header.columnDef, header.sortable)">{{ header.displayName }}</th>
+          <th class="align-middle no-sort" *ngIf="actions.length > 0 && data.length > 0"></th>
+        </tr>
+      </thead>
+      <tbody class="list">
+        <tr class="align-middle white-space-nowrap py-2" *ngIf="data.length === 0;">
+          <td [colSpan]="columnHeaderInfo.length">
+            No items found.
+          </td>
+        </tr>
+        <tr class="align-middle white-space-nowrap py-2" *ngFor="let element of data;">
+          <ng-container *ngFor="let header of columnHeaderInfo;  let last = last">
+            <td>
+              <ng-container *ngIf="!header.clickableDef">
+                {{ element[header.columnDef] }}
+              </ng-container>
+              <ng-container *ngIf="header.clickableDef">
+                <a [routerLink]="element[header.clickableDef]">{{ element[header.columnDef] }}</a>
+              </ng-container>
+            </td>
+
+            <td class="align-middle white-space-nowrap py-2 text-end" *ngIf="actions.length > 0 && last">
+              <div class="btn-group dropdown font-sans-serif" dropdown container="tbody">
+                <button dropdownToggle type="button" class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal show" aria-controls="dropdown-basic">
+                  <span class="fa-solid fa-ellipsis fs--1"></span>
+                </button>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-end border py-0" role="menu">
+                  <div class="bg-white py-2">
+                    <button class="dropdown-item" (click)="onActionEdit(element)" *ngIf="actions.includes(tableActionEnum.Edit)">Edit</button>
+                    <button class="dropdown-item text-danger" (click)="onActionDelete(element)" *ngIf="actions.includes(tableActionEnum.Delete)">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </td>
+
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="ng-select-wrapper">
+
+  <form [formGroup]="form">
+    <i class="fa-solid fa-xmark clear-btn" *ngIf="clearable && selectedIdControl.value" (click)="onClear()"></i>
+    <ng-select [items]="data" formControlName="selectedId"
+               [searchable]="false" [clearable]="false"
+               [bindLabel]="bindLabel" [bindValue]="bindValue">
+      <ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+        <div class="ng-option disabled">
+          No items found for "{{searchTerm}}"
+        </div>
+      </ng-template>
+      <h1>test</h1>
+      <ng-template ng-header-tmp>
+    <!--    <input style="width: 100%; line-height: 24px" type="text" (input)="select.filter($any($event.target).value)"/>-->
+
+          <input class="form-control" type="text" formControlName="filterText" />
+
+      </ng-template>
+    </ng-select>
+  </form>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,26 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h5 class="mb-0">Product Prices</h5>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-falcon-default btn-sm" (click)="onAddProductPrice()">
+          <span class="fa-solid fa-plus fs--2 me-1"></span>Add price
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <app-advanced-table [columnHeaderInfo]="columnHeaderInfo"
+                        [data]="productPriceData$ | async"
+                        [actions]="tableActions"
+                        (actionDelete)="onDeleteProductPrice($event)"
+                        (actionEdit)="onEditProductPrice($event)"></app-advanced-table>
+  </div>
+  <div class="card-footer d-flex align-items-center justify-content-center">
+    <ng-container *ngIf="(productPricePagination$ | async) as pagination">
+      <app-pagination *ngIf="pagination.totalPages > 1" [pagination]="pagination" (pageChanged)="onPageChanged($event)"></app-pagination>
+    </ng-container>
+  </div>
+</div>

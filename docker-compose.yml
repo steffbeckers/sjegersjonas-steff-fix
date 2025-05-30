@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  orion:
+    image: registry.proxasoft.be/orion
+    build:
+      context: .
+      dockerfile: Orion/Dockerfile

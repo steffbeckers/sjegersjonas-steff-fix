@@ -1,0 +1,54 @@
+<form [formGroup]="editFrom" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-lg col-xxl-6">
+      <div class="row mb-3">
+        <div class="col-5 col-sm-4">
+          <p class="fw-semi-bold mb-1">Name</p>
+        </div>
+        <div class="col">
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <input formFieldError type="text" class="form-control" formControlName="name">
+          </app-form-field-error>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5 col-sm-4">
+          <p class="fw-semi-bold mb-1">Code</p>
+        </div>
+        <div class="col">
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <input formFieldError type="text" class="form-control" formControlName="code">
+          </app-form-field-error>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5 col-sm-4">
+          <p class="fw-semi-bold mb-1">Category</p>
+        </div>
+        <div class="col">
+        <app-select-search [data]="productCategorySearchFacade.selectProductCategories$ | async"
+                           (search)="productCategorySearchFacade.searchProductCategory($event)"
+                           [bindLabel]="'name'"
+                           [bindValue]="'productCategoryId'">
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <input formFieldError selectSearchRef type="number" class="form-control" formControlName="category">
+          </app-form-field-error>
+        </app-select-search>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-5 col-sm-4">
+          <p class="fw-semi-bold mb-1">Description</p>
+        </div>
+        <div class="col">
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <textarea formFieldError class="form-control" rows="3" formControlName="description"></textarea>
+          </app-form-field-error>
+        </div>
+      </div>
+      <div class="mb-3">
+        <button [disabled]="(isFormSubmit && !editFrom.valid) || disableSubmit" type="submit" class="btn btn-falcon-success mt-2"><i class="fa-regular fa-floppy-disk me-2"></i>Save</button>
+      </div>
+    </div>
+  </div>
+</form>

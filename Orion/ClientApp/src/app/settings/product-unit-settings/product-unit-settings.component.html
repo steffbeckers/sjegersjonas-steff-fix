@@ -1,0 +1,64 @@
+<div class="card mb-3">
+  <div class="card-body d-flex justify-content-between">
+    <div>
+      <a class="btn btn-falcon-default btn-sm" routerLink="../">
+        <span class="fas fa-arrow-left"></span>
+        Back to Settings
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-2 mb-md-0">Product Unit Settings</h5>
+  </div>
+  <div class="card-body">
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <form [formGroup]="addProductUnitForm" (ngSubmit)="addProductUnit()">
+          <div class="position-relative rounded-1 border bg-white dark__bg-1100 p-3">
+            <div class="mb-3">
+              <label for="control_name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="control_name" formControlName="name">
+            </div>
+            <div class="mb-3">
+              <label for="control_description" class="form-label">Description</label>
+              <textarea class="form-control" id="control_description" rows="3" formControlName="description"></textarea>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-falcon-success mt-2"><i class="fa-regular fa-floppy-disk me-2"></i>Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <ng-container *ngIf="(productUnitList$ | async) as productUnitList">
+          <div class="alert alert-warning border-2 d-flex align-items-center" role="alert" *ngIf="productUnitList.length === 0">
+            <div class="bg-warning me-3 icon-item">
+              <span class="fas fa-exclamation-circle text-white fs-3"></span>
+            </div>
+            <p class="mb-0 flex-1">You have not configured any product units!</p>
+          </div>
+          <ul class="list-group bg-white dark__bg-1000 rounded-2">
+              <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let productUnit of productUnitList">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">{{productUnit.name}}</div>
+                  {{productUnit.description || "No Description"}}
+                </div>
+                <button type="button" class="btn btn-falcon-danger me-1 mb-1" (click)="removeProductUnit(productUnit.productUnitId)"><i class="bi bi-trash"></i></button>
+              </li>
+          </ul>
+          <ng-container *ngIf="(productUnitListPagination$ | async) as pagination">
+            <div class="mt-3">
+              <pagination *ngIf="pagination.totalItems > 0 && pagination.totalPages > 1" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.pageSize" (pageChanged)="onPaginate($event)"></pagination>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

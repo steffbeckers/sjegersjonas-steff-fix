@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  orion:
+#    ports:
+#      - "4080:80"
+#      - "4443:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+#      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=http://+:80
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 200m
+    networks:
+      - overlay-default
+
+networks:
+  overlay-default:
+    external: true

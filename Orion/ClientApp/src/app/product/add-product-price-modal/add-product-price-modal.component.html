@@ -1,0 +1,34 @@
+<div class="modal-content position-relative">
+  <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" aria-label="Close" (click)="modalRef.hide()"></button>
+  </div>
+  <div class="modal-body p-0">
+    <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+      <h4 class="mb-1">Add a new price</h4>
+    </div>
+    <div class="p-4 pb-0">
+      <form [formGroup]="addProductPriceFrom" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="col-form-label" for="form_product_unit">Unit:</label>
+          <app-select-search [data]="productUnitSearchFacade.selectProductUnits$ | async"
+                             (search)="productUnitSearchFacade.searchProductUnit($event)"
+                             [bindLabel]="'name'"
+                             [bindValue]="'productUnitId'">
+            <app-form-field-error [isSubmitted]="isFormSubmit">
+              <input formFieldError selectSearchRef id="form_product_unit" type="number" class="form-control" formControlName="productUnit">
+            </app-form-field-error>
+          </app-select-search>
+        </div>
+        <div class="mb-3">
+          <label class="col-form-label" for="form_price">Price:</label>
+          <app-form-field-error [isSubmitted]="isFormSubmit">
+            <input formFieldError type="text" id="form_price" class="form-control" formControlName="price">
+          </app-form-field-error>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button [disabled]="(isFormSubmit && !addProductPriceFrom.valid) || disableSubmit" class="btn btn-success" type="button" (click)="onSubmit()">Save</button>
+  </div>
+</div>

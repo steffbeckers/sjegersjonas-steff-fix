@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orion", "Orion\Orion.csproj", "{9A9DAF87-8588-4116-8BAD-439781B3EF2E}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{56DC625F-B298-4060-943B-2B35590A7C2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A9DAF87-8588-4116-8BAD-439781B3EF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9DAF87-8588-4116-8BAD-439781B3EF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9DAF87-8588-4116-8BAD-439781B3EF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9DAF87-8588-4116-8BAD-439781B3EF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56DC625F-B298-4060-943B-2B35590A7C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56DC625F-B298-4060-943B-2B35590A7C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56DC625F-B298-4060-943B-2B35590A7C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56DC625F-B298-4060-943B-2B35590A7C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93A97156-A760-486C-88A6-BF2F3F7DA273}
+	EndGlobalSection
+EndGlobal

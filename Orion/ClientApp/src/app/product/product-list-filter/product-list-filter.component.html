@@ -1,0 +1,27 @@
+<div class="filters-accordion">
+  <accordion [isAnimated]="true">
+    <accordion-group [isOpen]="show" heading="Another group">
+      <form [formGroup]="searchFrom">
+        <div class="row gx-0 ps-2 mb-4">
+          <div class="col-sm-2 px-3">
+            <select class="form-select"  formControlName="column">
+              <option value="1">Code</option>
+              <option value="2">Name</option>
+              <option value="3">Category</option>
+            </select>
+          </div>
+          <div class="col-sm-3 px-3">
+            <input class="form-control" type="text"  formControlName="searchText" placeholder="Search..." *ngIf="searchFrom.get('column')?.value !== '3'">
+            <app-select-search [data]="productCategorySearchFacade.selectProductCategories$ | async"
+                               (search)="productCategorySearchFacade.searchProductCategory($event)"
+                               [bindLabel]="'name'"
+                               [bindValue]="'productCategoryId'"
+                               *ngIf="searchFrom.get('column')?.value === '3'">
+                <input selectSearchRef type="number" class="form-control" formControlName="category">
+            </app-select-search>
+          </div>
+        </div>
+      </form>
+    </accordion-group>
+  </accordion>
+</div>
