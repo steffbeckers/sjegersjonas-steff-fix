@@ -8,7 +8,7 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import {FormBuilder, FormControl, NgControl} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormControl, NgControl} from "@angular/forms";
 import {debounceTime, distinctUntilChanged} from "rxjs";
 import {SearchParam} from "../../infrastructure/queries/filter/search-param";
 import {SubSink} from "subsink";
@@ -49,7 +49,7 @@ export class SelectSearchComponent implements OnInit, AfterContentInit, OnDestro
     filterText: [''],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit() {
     this.addFilterTextControlListener();
@@ -94,16 +94,16 @@ export class SelectSearchComponent implements OnInit, AfterContentInit, OnDestro
     });
   }
 
-  get selectedIdControl(): FormControl {
-    return this.form.get('selectedId') as FormControl;
+  get selectedIdControl(): UntypedFormControl {
+    return this.form.get('selectedId') as UntypedFormControl;
   }
 
   set selectedIdControl(id: any) {
     this.form.patchValue({ selectedId: id });
   }
 
-  get filterTextControl(): FormControl {
-    return this.form.get('filterText') as FormControl;
+  get filterTextControl(): UntypedFormControl {
+    return this.form.get('filterText') as UntypedFormControl;
   }
 
   ngOnDestroy(): void {

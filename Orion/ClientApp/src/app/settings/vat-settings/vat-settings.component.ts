@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ValueAddedTaxRateList} from "../../shared/models/value-added-tax-rate/value-added-tax-rate-list";
 import {Observable} from "rxjs";
-import {FormBuilder, Validators} from '@angular/forms';
+import {UntypedFormBuilder, Validators} from '@angular/forms';
 import {AddValueAddedTaxRateRequest} from "../../shared/requests/value-added-tax-rate/add-value-added-tax-rate.request";
 import {ValueAddedTaxRateListFacade} from "../store/facades/value-added-tax-rate-list.facade";
 
@@ -16,7 +16,7 @@ export class VatSettingsComponent implements OnInit {
   });
   valueAddedTaxRateList$: Observable<ValueAddedTaxRateList[]>;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private valueAddedTaxRateListFacade: ValueAddedTaxRateListFacade) {
     this.valueAddedTaxRateList$ = this.valueAddedTaxRateListFacade.selectList$;
   }

@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {RelationFacade} from "../store/relation.facade";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 import {debounceTime, distinctUntilChanged} from "rxjs";
 import {FilterOperator} from "../../shared/infrastructure/enums/filter-operator.enum";
 import {ProductFilterParams} from "../../shared/requests/product/product-filter.params";
@@ -25,7 +25,7 @@ export class RelationListFilterComponent implements OnInit, OnDestroy {
     searchText: ['']
   });
   filters: RelationFilterParams | null = null;
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private relationFacade: RelationFacade) { }
 
   ngOnInit(): void {

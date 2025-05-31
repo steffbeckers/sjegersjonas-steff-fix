@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {ProductCategoryList} from "../../shared/models/product-category/product-category-list";
 import {ProductCategoryListFacade} from "../store/facades/product-category-list.facade";
@@ -21,7 +21,7 @@ export class ProductCategorySettingsComponent implements OnInit {
   productCategoryList$: Observable<ProductCategoryList[]>;
   productCategoryListPagination$: Observable<Pagination>;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private productCategoryListFacade: ProductCategoryListFacade) {
     this.productCategoryList$ = this.productCategoryListFacade.selectList$;
     this.productCategoryListPagination$ = this.productCategoryListFacade.selectPagination$;

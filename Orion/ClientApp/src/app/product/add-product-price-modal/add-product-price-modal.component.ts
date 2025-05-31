@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {BsModalRef} from "ngx-bootstrap/modal";
 import {EmptyStringValidator} from "../../shared/validators/empty-string.validator";
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {idValidator} from "../../shared/validators/id.validator";
 import {ProductUnitSearchFacade} from "../../app-store/facades/product-unit-search.facade";
 import {positiveNumberValidator} from "../../shared/validators/positive-number.validator";
@@ -34,7 +34,7 @@ export class AddProductPriceModalComponent implements OnDestroy {
   disableSubmit: boolean = false;
 
   constructor(public modalRef: BsModalRef,
-              private fb: FormBuilder,
+              private fb: UntypedFormBuilder,
               private productFacade: ProductFacade,
               public productUnitSearchFacade: ProductUnitSearchFacade,
               private actionListener$: ActionsSubject) { }

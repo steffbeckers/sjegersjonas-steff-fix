@@ -3,7 +3,7 @@ import {SubSink} from "subsink";
 import {idValidator} from "../../shared/validators/id.validator";
 import {positiveNumberValidator} from "../../shared/validators/positive-number.validator";
 import {BsModalRef} from "ngx-bootstrap/modal";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 import {ProductFacade} from "../store/product.facade";
 import {ProductUnitSearchFacade} from "../../app-store/facades/product-unit-search.facade";
 import {Action, ActionsSubject} from "@ngrx/store";
@@ -33,7 +33,7 @@ export class EditProductPriceModalComponent implements OnInit, OnDestroy {
   disableSubmit: boolean = false;
 
   constructor(public modalRef: BsModalRef,
-              private fb: FormBuilder,
+              private fb: UntypedFormBuilder,
               private productFacade: ProductFacade,
               public productUnitSearchFacade: ProductUnitSearchFacade,
               private actionListener$: ActionsSubject) { }

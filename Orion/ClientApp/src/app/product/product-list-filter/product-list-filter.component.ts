@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ProductFacade} from "../store/product.facade";
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {SubSink} from "subsink";
 import {skip, take, tap} from "rxjs/operators";
 import {ProductFilterParams} from "../../shared/requests/product/product-filter.params";
@@ -26,7 +26,7 @@ export class ProductListFilterComponent implements OnInit, OnDestroy {
     category: [null],
   });
   filters: ProductFilterParams | null = null;
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private productFacade: ProductFacade,
               public productCategorySearchFacade: ProductCategorySearchFacade) { }
 

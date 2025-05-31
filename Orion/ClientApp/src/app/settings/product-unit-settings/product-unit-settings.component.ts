@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {Pagination} from "../../shared/infrastructure/queries/pagination/pagination.interface";
 import {PageChangedEvent} from "ngx-bootstrap/pagination";
@@ -23,7 +23,7 @@ export class ProductUnitSettingsComponent implements OnInit {
   productUnitList$: Observable<ProductUnitList[]>;
   productUnitListPagination$: Observable<Pagination>;
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private productUnitListFacade: ProductUnitListFacade) {
     this.productUnitList$ = this.productUnitListFacade.selectList$;
     this.productUnitListPagination$ = this.productUnitListFacade.selectPagination$;

@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SubSink} from "subsink";
 import {EmptyStringValidator} from "../../shared/validators/empty-string.validator";
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormControl, Validators} from "@angular/forms";
 import {BsModalRef} from "ngx-bootstrap/modal";
 import {RelationFacade} from "../store/relation.facade";
 import {Action, ActionsSubject} from "@ngrx/store";
@@ -40,7 +40,7 @@ export class AddRelationModalComponent implements OnInit, OnDestroy {
   disableSubmit: boolean = false;
 
   constructor(public modalRef: BsModalRef,
-              private fb: FormBuilder,
+              private fb: UntypedFormBuilder,
               private relationFacade: RelationFacade,
               private actionListener$: ActionsSubject) { }
 
@@ -86,8 +86,8 @@ export class AddRelationModalComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  get isCompanyControl(): FormControl {
-    return this.addFrom.get('isCompany') as FormControl;
+  get isCompanyControl(): UntypedFormControl {
+    return this.addFrom.get('isCompany') as UntypedFormControl;
   }
 
 }

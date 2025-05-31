@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BsModalRef} from "ngx-bootstrap/modal";
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {ProductFacade} from "../store/product.facade";
 import {Action, ActionsSubject} from "@ngrx/store";
 import {SubSink} from "subsink";
@@ -31,7 +31,7 @@ export class AddProductModalComponent implements OnInit, OnDestroy {
   disableSubmit: boolean = false;
 
   constructor(public modalRef: BsModalRef,
-              private fb: FormBuilder,
+              private fb: UntypedFormBuilder,
               private productFacade: ProductFacade,
               public productCategorySearchFacade: ProductCategorySearchFacade,
               private actionListener$: ActionsSubject) { }

@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ProductDetails} from "../../shared/models/product/product-details";
-import {FormBuilder, Validators} from "@angular/forms";
+import {UntypedFormBuilder, Validators} from "@angular/forms";
 import {ProductCategorySearchFacade} from "../../app-store/facades/product-category-search.facade";
 import {UpdateProductRequest} from "../../shared/requests/product/update-product.request";
 import {ProductFacade} from "../store/product.facade";
@@ -32,7 +32,7 @@ export class ProductDetailsEditComponent implements OnInit, OnDestroy {
     description: ['', [Validators.maxLength(100)]],
   });
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
               private productFacade: ProductFacade,
               public productCategorySearchFacade: ProductCategorySearchFacade,
               private actionListener$: ActionsSubject,
