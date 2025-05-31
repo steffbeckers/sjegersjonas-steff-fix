@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import {ProductFacade} from "../store/product.facade";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductDetailsGuard implements CanActivate {
+export class ProductDetailsGuard  {
 
   constructor(private productFacade: ProductFacade) {
   }
