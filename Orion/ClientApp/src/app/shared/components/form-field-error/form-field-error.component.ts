@@ -13,16 +13,18 @@ import {Subscription} from "rxjs";
 import {ValidatorErrorService} from "../../validators/validator-error.service";
 
 @Directive({
-  selector: '[formFieldError]',
+    selector: '[formFieldError]',
+    standalone: false
 })
 export class FormFieldErrorDirective {
   constructor(public  control: NgControl) {}
 }
 
 @Component({
-  selector: 'app-form-field-error[isSubmitted]',
-  templateUrl: './form-field-error.component.html',
-  styleUrls: ['./form-field-error.component.scss']
+    selector: 'app-form-field-error[isSubmitted]',
+    templateUrl: './form-field-error.component.html',
+    styleUrls: ['./form-field-error.component.scss'],
+    standalone: false
 })
 export class FormFieldErrorComponent implements OnChanges, AfterContentInit, OnDestroy {
   @ContentChild(FormFieldErrorDirective) contentChild!: FormFieldErrorDirective;

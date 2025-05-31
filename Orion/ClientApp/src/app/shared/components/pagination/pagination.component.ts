@@ -2,9 +2,10 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {Pagination} from "../../infrastructure/queries/pagination/pagination.interface";
 
 @Component({
-  selector: 'app-pagination',
-  templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+    selector: 'app-pagination',
+    templateUrl: './pagination.component.html',
+    styleUrls: ['./pagination.component.scss'],
+    standalone: false
 })
 export class PaginationComponent implements OnInit, OnChanges {
 

@@ -13,9 +13,10 @@ import {AddProductRequest} from "../../shared/requests/product/add-product.reque
 import {StringHelper} from "../../shared/helpers/string.helper";
 
 @Component({
-  selector: 'app-add-product-modal',
-  templateUrl: './add-product-modal.component.html',
-  styleUrls: ['./add-product-modal.component.scss']
+    selector: 'app-add-product-modal',
+    templateUrl: './add-product-modal.component.html',
+    styleUrls: ['./add-product-modal.component.scss'],
+    standalone: false
 })
 export class AddProductModalComponent implements OnInit, OnDestroy {
 

@@ -12,9 +12,10 @@ import {addRelationFailure, addRelationSuccess} from "../store/relation.actions"
 import {isBooleanValidator} from "../../shared/validators/is-boolean.validator";
 
 @Component({
-  selector: 'app-add-relation-modal',
-  templateUrl: './add-relation-modal.component.html',
-  styleUrls: ['./add-relation-modal.component.scss']
+    selector: 'app-add-relation-modal',
+    templateUrl: './add-relation-modal.component.html',
+    styleUrls: ['./add-relation-modal.component.scss'],
+    standalone: false
 })
 export class AddRelationModalComponent implements OnInit, OnDestroy {
 

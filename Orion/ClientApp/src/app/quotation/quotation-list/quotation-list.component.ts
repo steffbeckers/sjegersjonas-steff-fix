@@ -10,9 +10,10 @@ import {AddQuotationModalComponent} from "../add-quotation-modal/add-quotation-m
 import {QuotationFacade} from "../store/quotation.facade";
 
 @Component({
-  selector: 'app-quotation-list',
-  templateUrl: './quotation-list.component.html',
-  styleUrls: ['./quotation-list.component.scss']
+    selector: 'app-quotation-list',
+    templateUrl: './quotation-list.component.html',
+    styleUrls: ['./quotation-list.component.scss'],
+    standalone: false
 })
 export class QuotationListComponent implements OnInit {
 

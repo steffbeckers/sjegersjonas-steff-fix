@@ -4,9 +4,10 @@ import {ProductDetails} from "../../shared/models/product/product-details";
 import {ProductFacade} from "../store/product.facade";
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+    selector: 'app-product-details',
+    templateUrl: './product-details.component.html',
+    styleUrls: ['./product-details.component.scss'],
+    standalone: false
 })
 export class ProductDetailsComponent {
 

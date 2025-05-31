@@ -14,8 +14,9 @@ interface City {
 }
 
 @Component({
-  selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+    selector: 'app-fetch-data',
+    templateUrl: './fetch-data.component.html',
+    standalone: false
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];

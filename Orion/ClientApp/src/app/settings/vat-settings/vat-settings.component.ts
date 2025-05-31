@@ -6,9 +6,10 @@ import {AddValueAddedTaxRateRequest} from "../../shared/requests/value-added-tax
 import {ValueAddedTaxRateListFacade} from "../store/facades/value-added-tax-rate-list.facade";
 
 @Component({
-  selector: 'app-vat-settings',
-  templateUrl: './vat-settings.component.html',
-  styleUrls: ['./vat-settings.component.scss']
+    selector: 'app-vat-settings',
+    templateUrl: './vat-settings.component.html',
+    styleUrls: ['./vat-settings.component.scss'],
+    standalone: false
 })
 export class VatSettingsComponent implements OnInit {
   addVatForm = this.fb.group({

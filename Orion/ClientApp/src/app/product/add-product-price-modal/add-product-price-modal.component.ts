@@ -16,9 +16,10 @@ import {Action, ActionsSubject} from "@ngrx/store";
 import {SubSink} from "subsink";
 
 @Component({
-  selector: 'app-add-product-price-modal',
-  templateUrl: './add-product-price-modal.component.html',
-  styleUrls: ['./add-product-price-modal.component.scss']
+    selector: 'app-add-product-price-modal',
+    templateUrl: './add-product-price-modal.component.html',
+    styleUrls: ['./add-product-price-modal.component.scss'],
+    standalone: false
 })
 export class AddProductPriceModalComponent implements OnDestroy {
 

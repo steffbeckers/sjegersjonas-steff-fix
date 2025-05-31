@@ -10,9 +10,10 @@ import {RelationList} from "../../shared/models/relation/relation-list";
 import {AddRelationModalComponent} from "../add-relation-modal/add-relation-modal.component";
 
 @Component({
-  selector: 'app-relation-list',
-  templateUrl: './relation-list.component.html',
-  styleUrls: ['./relation-list.component.scss']
+    selector: 'app-relation-list',
+    templateUrl: './relation-list.component.html',
+    styleUrls: ['./relation-list.component.scss'],
+    standalone: false
 })
 export class RelationListComponent implements OnInit {
   isFilterOpen = false;

@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-quotation-list-filter',
-  templateUrl: './quotation-list-filter.component.html',
-  styleUrls: ['./quotation-list-filter.component.scss']
+    selector: 'app-quotation-list-filter',
+    templateUrl: './quotation-list-filter.component.html',
+    styleUrls: ['./quotation-list-filter.component.scss'],
+    standalone: false
 })
 export class QuotationListFilterComponent implements OnInit {
 

@@ -10,9 +10,10 @@ import {AddProductUnitRequest} from "../../shared/requests/product-unit/add-prod
 
 
 @Component({
-  selector: 'app-product-unit-settings',
-  templateUrl: './product-unit-settings.component.html',
-  styleUrls: ['./product-unit-settings.component.scss']
+    selector: 'app-product-unit-settings',
+    templateUrl: './product-unit-settings.component.html',
+    styleUrls: ['./product-unit-settings.component.scss'],
+    standalone: false
 })
 export class ProductUnitSettingsComponent implements OnInit {
 

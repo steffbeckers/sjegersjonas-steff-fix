@@ -15,10 +15,11 @@ import {SubSink} from "subsink";
 import {StringHelper} from "../../helpers/string.helper";
 
 @Directive({
-  selector: '[selectSearchRef]',
-  host: {
-    '[style.display]': '"none"'
-  }
+    selector: '[selectSearchRef]',
+    host: {
+        '[style.display]': '"none"'
+    },
+    standalone: false
 })
 export class SelectSearchRefDirective {
 
@@ -30,9 +31,10 @@ export class SelectSearchRefDirective {
 }
 
 @Component({
-  selector: 'app-select-search[data][bindLabel][bindValue]',
-  templateUrl: './select-search.component.html',
-  styleUrls: ['./select-search.component.scss']
+    selector: 'app-select-search[data][bindLabel][bindValue]',
+    templateUrl: './select-search.component.html',
+    styleUrls: ['./select-search.component.scss'],
+    standalone: false
 })
 export class SelectSearchComponent implements OnInit, AfterContentInit, OnDestroy {
   @ContentChild(SelectSearchRefDirective) contentChild!: SelectSearchRefDirective;

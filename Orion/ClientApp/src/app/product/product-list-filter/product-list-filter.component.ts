@@ -11,9 +11,10 @@ import {ProductCategorySearchFacade} from "../../app-store/facades/product-categ
 import {StringHelper} from "../../shared/helpers/string.helper";
 
 @Component({
-  selector: 'app-product-list-filter[show]',
-  templateUrl: './product-list-filter.component.html',
-  styleUrls: ['./product-list-filter.component.scss']
+    selector: 'app-product-list-filter[show]',
+    templateUrl: './product-list-filter.component.html',
+    styleUrls: ['./product-list-filter.component.scss'],
+    standalone: false
 })
 export class ProductListFilterComponent implements OnInit, OnDestroy {
 

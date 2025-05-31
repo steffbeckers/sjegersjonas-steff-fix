@@ -12,9 +12,10 @@ import { updateProductSuccess, updateProductFailure } from "../store/product.act
 import {SubSink} from "subsink";
 
 @Component({
-  selector: 'app-product-details-edit[product]',
-  templateUrl: './product-details-edit.component.html',
-  styleUrls: ['./product-details-edit.component.scss']
+    selector: 'app-product-details-edit[product]',
+    templateUrl: './product-details-edit.component.html',
+    styleUrls: ['./product-details-edit.component.scss'],
+    standalone: false
 })
 export class ProductDetailsEditComponent implements OnInit, OnDestroy {
 

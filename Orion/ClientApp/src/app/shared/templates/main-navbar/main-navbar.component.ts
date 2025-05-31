@@ -4,9 +4,10 @@ import {LayoutFacade} from "../../../app-store/facades/layout.facade";
 import {first, Observable} from "rxjs";
 
 @Component({
-  selector: 'app-main-navbar',
-  templateUrl: './main-navbar.component.html',
-  styleUrls: ['./main-navbar.component.scss']
+    selector: 'app-main-navbar',
+    templateUrl: './main-navbar.component.html',
+    styleUrls: ['./main-navbar.component.scss'],
+    standalone: false
 })
 export class MainNavbarComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import {SortOrder} from "../../infrastructure/enums/sort-order.enum";
 import {TableActionEnum} from "./table-action.enum";
 
 @Component({
-  selector: 'app-advanced-table',
-  templateUrl: './advanced-table.component.html',
-  styleUrls: ['./advanced-tablecomponent.scss']
+    selector: 'app-advanced-table',
+    templateUrl: './advanced-table.component.html',
+    styleUrls: ['./advanced-tablecomponent.scss'],
+    standalone: false
 })
 export class AdvancedTableComponent implements OnInit {
   tableActionEnum = TableActionEnum

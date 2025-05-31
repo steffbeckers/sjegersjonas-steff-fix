@@ -11,9 +11,10 @@ import {skip, take} from "rxjs/operators";
 import {RelationFilterParams} from "../../shared/requests/relation/relation-filter.params";
 
 @Component({
-  selector: 'app-relation-list-filter[show]',
-  templateUrl: './relation-list-filter.component.html',
-  styleUrls: ['./relation-list-filter.component.scss']
+    selector: 'app-relation-list-filter[show]',
+    templateUrl: './relation-list-filter.component.html',
+    styleUrls: ['./relation-list-filter.component.scss'],
+    standalone: false
 })
 export class RelationListFilterComponent implements OnInit, OnDestroy {
 

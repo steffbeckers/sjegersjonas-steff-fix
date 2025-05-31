@@ -8,9 +8,10 @@ import {Pagination} from "../../shared/infrastructure/queries/pagination/paginat
 import {PageChangedEvent} from "ngx-bootstrap/pagination";
 
 @Component({
-  selector: 'app-product-category-settings',
-  templateUrl: './product-category-settings.component.html',
-  styleUrls: ['./product-category-settings.component.scss']
+    selector: 'app-product-category-settings',
+    templateUrl: './product-category-settings.component.html',
+    styleUrls: ['./product-category-settings.component.scss'],
+    standalone: false
 })
 export class ProductCategorySettingsComponent implements OnInit {
 

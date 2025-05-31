@@ -15,9 +15,10 @@ import {SubSink} from "subsink";
 import {EditProductPriceModalComponent} from "../edit-product-price-modal/edit-product-price-modal.component";
 
 @Component({
-  selector: 'app-product-details-prices[productId]',
-  templateUrl: './product-details-prices.component.html',
-  styleUrls: ['./product-details-prices.component.scss']
+    selector: 'app-product-details-prices[productId]',
+    templateUrl: './product-details-prices.component.html',
+    styleUrls: ['./product-details-prices.component.scss'],
+    standalone: false
 })
 export class ProductDetailsPricesComponent implements OnInit, OnDestroy {
 

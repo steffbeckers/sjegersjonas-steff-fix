@@ -15,9 +15,10 @@ import {ProductPriceList} from "../../shared/models/product/product-price-list";
 import {UpdateProductPriceRequest} from "../../shared/requests/product/update-product-price.request";
 
 @Component({
-  selector: 'app-edit-product-price-modal',
-  templateUrl: './edit-product-price-modal.component.html',
-  styleUrls: ['./edit-product-price-modal.component.scss']
+    selector: 'app-edit-product-price-modal',
+    templateUrl: './edit-product-price-modal.component.html',
+    styleUrls: ['./edit-product-price-modal.component.scss'],
+    standalone: false
 })
 export class EditProductPriceModalComponent implements OnInit, OnDestroy {
 
