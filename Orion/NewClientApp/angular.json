@@ -42,7 +42,10 @@
             "outputPath": "dist/orion",
             "polyfills": ["zone.js"],
             "scripts": [],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.scss"
+            ],
             "tsConfig": "tsconfig.app.json"
           }
         },
@@ -73,7 +76,10 @@
             "inlineStyleLanguage": "scss",
             "polyfills": ["zone.js", "zone.js/testing"],
             "scripts": [],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.scss"
+            ],
             "tsConfig": "tsconfig.spec.json"
           }
         }
