@@ -8,17 +8,10 @@ type Relation = {
 
 type RelationsState = {
   columns: string[];
-  filter: { query: string; order: 'asc' | 'desc' };
-  isLoading: boolean;
 };
 
 const initialState: RelationsState = {
   columns: ['id', 'name'],
-  filter: {
-    order: 'asc',
-    query: '',
-  },
-  isLoading: false,
 };
 
 export const RelationsStore = signalStore(
